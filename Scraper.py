@@ -4,7 +4,10 @@ import Email
 import time
 import os
 from dotenv import load_dotenv
+from os.path import join, dirname
 
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
 
 #This is needed if i want to use Brave but is to bugfix
 # browser_path = "C:\Program Files (x86)\BraveSoftware\Brave-Browser\Application\chromedriver.exe"
@@ -17,11 +20,20 @@ from dotenv import load_dotenv
 
 # # Create new Instance of Chrome
 # browser = webdriver.Chrome(executable_path=browser_path, options=option)
-load_dotenv()
+
 esame_old = None
 esame = None
 mymail = os.environ.get('Email_Uni')
 password =  os.environ.get('Unicorni')
+
+#This is needed if i want to use Brave but is to bugfix
+# browser_path = "C:\Program Files (x86)\BraveSoftware\Brave-Browser\Application\chromedriver.exe"
+# brave_path = "C:\Program Files (x86)\BraveSoftware\Brave-Browser\Application\\brave.exe"
+
+# option = webdriver.ChromeOptions()
+# option.binary_location = brave_path
+# # option.add_argument("--incognito") OPTIONAL
+# # option.add_argument("--headless") OPTIONAL
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument("--incognito")
